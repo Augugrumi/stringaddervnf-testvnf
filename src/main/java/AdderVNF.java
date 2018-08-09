@@ -13,7 +13,10 @@ public class AdderVNF extends BaseVNF {
     }
 
     public String functionality(String message) {
-        return message + toAdd;
+        int ind = message.lastIndexOf("\r\n");
+        if( ind>=0 )
+            message = new StringBuilder(message).replace(ind, ind+1,toAdd + "\r\n").toString();
+        return message;
     }
 
     public static void main(String[] args) {
