@@ -1,9 +1,7 @@
-import vfn.BaseVNF;
+import vfn.AbsBaseVNF;
 import vfn.testvnfs.AddStringVNF;
 
-import java.io.IOException;
-
-public class AdderVNF extends BaseVNF {
+public class AdderVNF extends AbsBaseVNF {
 
     private String toAdd;
 
@@ -22,10 +20,6 @@ public class AdderVNF extends BaseVNF {
     public static void main(String[] args) {
         System.out.println("string to add: " + args[0]);
         System.out.println("port:          " + args[1]);
-        try {
-            new AddStringVNF(args[0], Integer.parseInt(args[1])).execute();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        new AddStringVNF(args[0], Integer.parseInt(args[1])).execute();
     }
 }
