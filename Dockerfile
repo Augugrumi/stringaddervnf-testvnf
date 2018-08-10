@@ -21,5 +21,6 @@ RUN git clone https://github.com/Augugrumi/stringaddervnf-testvnf.git && \
 FROM java:8
 ENV PORT=8080 STRING_TO_ADD=vnf
 WORKDIR /
+COPY --from=builder /stringaddervnf.jar /stringaddervnf.jar
 EXPOSE $PORT
 CMD java -jar stringaddervnf.jar $STRING_TO_ADD $PORT
