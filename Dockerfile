@@ -13,9 +13,7 @@ RUN apt-get update &&  \
     apt-get install -y maven git
 
 # Builds the launcher
-RUN git clone https://github.com/Augugrumi/stringaddervnf-testvnf.git && \
-    cd stringaddervnf-testvnf && \
-    mvn package && \
+RUN mvn package && \
     mv target/addervnf-1.0-SNAPSHOT-jar-with-dependencies.jar /stringaddervnf.jar
 
 FROM java:8
