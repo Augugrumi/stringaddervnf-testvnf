@@ -11,10 +11,7 @@ public class AdderVNF extends AbsBaseVNF {
     }
 
     public String functionality(String message) {
-        int ind = message.lastIndexOf("\r\n");
-        if( ind>=0 )
-            message = new StringBuilder(message).replace(ind, ind+1,toAdd + "\r\n").toString();
-        return message;
+        return message.replace("\r\n\r\n", "\r\n").concat(toAdd);
     }
 
     public static void main(String[] args) {
@@ -23,3 +20,5 @@ public class AdderVNF extends AbsBaseVNF {
         new AddStringVNF(args[0], Integer.parseInt(args[1])).execute();
     }
 }
+
+
